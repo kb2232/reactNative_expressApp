@@ -1,11 +1,14 @@
-// -- reuqire user model
+// -- reuqire models
 require('./models/User');
+require('./models/Track');
+
 /* INCLUDES */
 const express = require('express'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser');
 /* routes */
 const authRoutes = require('./routes/authRoutes');
+const trackRoutes = require('./routes/trackRoutes');
 const generalRoutes = require('./routes/generalRoutes');
 
 //---app
@@ -14,6 +17,7 @@ const app = express();
 /* middlewares */
 app.use(bodyParser.json());
 app.use(authRoutes);
+app.use(trackRoutes);
 app.use(generalRoutes);
 
 /* mongo setup */
